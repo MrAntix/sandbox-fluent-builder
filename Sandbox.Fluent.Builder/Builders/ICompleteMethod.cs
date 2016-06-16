@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Sandbox.Fluent.Builder
+namespace Sandbox.Fluent.Builder.Builders
 {
     public interface ICompleteMethod
     {

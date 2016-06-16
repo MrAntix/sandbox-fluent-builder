@@ -1,6 +1,6 @@
-﻿namespace Sandbox.Fluent.Builder
+﻿namespace Sandbox.Fluent.Builder.Builders
 {
-    public class CompleteBuilder
+    public class CompleteBuilder: BuilderBase
     {
     }
 }

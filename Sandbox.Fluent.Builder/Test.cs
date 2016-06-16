@@ -4,27 +4,31 @@
     {
         public void build()
         {
-            new Builder()
+            new Builders.Builder()
                 .Setup(() => { })
                 .Error(() => { })
-                .Complete(() => { });
+                .Complete(() => { })
+                .Build();
 
-            new Builder()
+            new Builders.Builder()
                 .Error(() => { })
-                .Complete(() => { });
+                .Complete(() => { })
+                .Build();
 
-            new Builder()
+            new Builders.Builder()
                 .Setup(() => { })
-                .Complete(() => { });
+                .Complete(() => { })
+                .Build();
 
-            new Builder()
-                .Complete(() => { });
+            new Builders.Builder()
+                .Complete(() => { })
+                .Build();
 
-            new Builder()
+            new Builders.Builder()
                 .Setup(() => { })
                 .Setup(() => { });
 
-            new Builder()
+            new Builders.Builder()
                 .Setup(() => { })
                 .Error(() => { })
                 .Error(() => { });

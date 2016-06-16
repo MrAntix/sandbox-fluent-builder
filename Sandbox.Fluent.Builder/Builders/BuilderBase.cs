@@ -1,4 +1,4 @@
-﻿namespace Sandbox.Fluent.Builder
+﻿namespace Sandbox.Fluent.Builder.Builders
 {
     public abstract class BuilderBase
     {

@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Sandbox.Fluent.Builder
+namespace Sandbox.Fluent.Builder.Builders
 {
-    public class ErrorBuilder : ICompleteMethod
+    public class ErrorBuilder : BuilderBase, ICompleteMethod
     {
         public CompleteBuilder Complete(Action action)
         {
