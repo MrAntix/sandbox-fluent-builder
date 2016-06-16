@@ -2,9 +2,10 @@
 
 namespace Sandbox.FluentBuilder.Builders
 {
-    public class ErrorBuilder<T> : BuilderBase<T>, ICompleteMethod<T>
+    public class ErrorBuilder<T> : 
+        BuilderBase<T>, ICompleteMethod<T>
     {
-        public ErrorBuilder(Action<T> setup, Action<T> error) : 
+        public ErrorBuilder(Action<T> setup, Action<T> error) :
             base(setup, error, null)
         {
         }

@@ -66,6 +66,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Builders\SetupBuilder.cs" />
     <Compile Include="Test.cs" />
+    <Compile Include="TestSubject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

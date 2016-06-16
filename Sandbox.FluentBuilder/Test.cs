@@ -65,26 +65,10 @@ namespace Sandbox.FluentBuilder
             Assert.NotNull(subject.Complete);
         }
 
-        static void SetSetup(TestSubject s)
-        {
-            s.Setup = "SET";
-        }
+        static void SetSetup(TestSubject s) => s.Setup = "SET";
 
-        static void SetError(TestSubject s)
-        {
-            s.Error = "SET";
-        }
+        static void SetError(TestSubject s) => s.Error = "SET";
 
-        static void SetComplete(TestSubject s)
-        {
-            s.Complete = "SET";
-        }
-    }
-
-    public class TestSubject
-    {
-        public string Setup { get; set; }
-        public string Error { get; set; }
-        public string Complete { get; set; }
+        static void SetComplete(TestSubject s) => s.Complete = "SET";
     }
 }

@@ -4,9 +4,9 @@ namespace Sandbox.FluentBuilder.Builders
 {
     public abstract class BuilderBase<T>
     {
-        protected readonly Action<T> _setup;
-        protected readonly Action<T> _error;
         protected readonly Action<T> _complete;
+        protected readonly Action<T> _error;
+        protected readonly Action<T> _setup;
 
         protected BuilderBase(Action<T> setup, Action<T> error, Action<T> complete)
         {
