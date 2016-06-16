@@ -33,6 +33,11 @@
                 .Error(() => { })
                 .Error(() => { });
 
+            new Builders.Builder()
+                .Setup(() => { })
+                .Complete(() => { })
+                .Setup(() => { });
+
         }
     }
 }
