@@ -1,12 +1,17 @@
 ﻿using System;
 
-namespace Sandbox.Fluent.Builder.Builders
+namespace Sandbox.FluentBuilder.Builders
 {
-    public class ErrorBuilder : BuilderBase, ICompleteMethod
+    public class ErrorBuilder<T> : BuilderBase<T>, ICompleteMethod<T>
     {
-        public CompleteBuilder Complete(Action action)
+        public ErrorBuilder(Action<T> setup, Action<T> error) : 
+            base(setup, error, null)
         {
-            throw new NotImplementedException();
+        }
+
+        public CompleteBuilder<T> Complete(Action<T> action)
+        {
+            return new CompleteBuilder<T>(_setup, _error, action);
         }
     }
 }

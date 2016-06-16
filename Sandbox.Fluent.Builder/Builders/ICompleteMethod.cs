@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Sandbox.Fluent.Builder.Builders
+namespace Sandbox.FluentBuilder.Builders
 {
-    public interface ICompleteMethod
+    public interface ICompleteMethod<T>
     {
-        CompleteBuilder Complete(Action action);
+        CompleteBuilder<T> Complete(Action<T> action);
     }
 }

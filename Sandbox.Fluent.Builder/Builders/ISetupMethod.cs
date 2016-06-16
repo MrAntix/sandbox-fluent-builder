@@ -1,9 +1,9 @@
 using System;
 
-namespace Sandbox.Fluent.Builder.Builders
+namespace Sandbox.FluentBuilder.Builders
 {
-    public interface ISetupMethod
+    public interface ISetupMethod<T>
     {
-        SetupBuilder Setup(Action action);
+        SetupBuilder<T> Setup(Action<T> action);
     }
 }

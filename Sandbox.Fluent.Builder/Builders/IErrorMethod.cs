@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Sandbox.Fluent.Builder.Builders
+namespace Sandbox.FluentBuilder.Builders
 {
-    public interface IErrorMethod
+    public interface IErrorMethod<T>
     {
-        ErrorBuilder Error(Action action);
+        ErrorBuilder<T> Error(Action<T> action);
     }
 }

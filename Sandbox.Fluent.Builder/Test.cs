@@ -1,43 +1,90 @@
-﻿namespace Sandbox.Fluent.Builder
+﻿using Sandbox.FluentBuilder.Builders;
+using Xunit;
+
+namespace Sandbox.FluentBuilder
 {
     public class Test
     {
-        public void build()
+        [Fact]
+        public void build_1()
         {
-            new Builders.Builder()
-                .Setup(() => { })
-                .Error(() => { })
-                .Complete(() => { })
-                .Build();
+            var subject = new TestSubject();
 
-            new Builders.Builder()
-                .Error(() => { })
-                .Complete(() => { })
-                .Build();
+            Builder<TestSubject>.Create()
+                .Setup(SetSetup)
+                .Error(SetError)
+                .Complete(SetComplete)
+                .Build(subject);
 
-            new Builders.Builder()
-                .Setup(() => { })
-                .Complete(() => { })
-                .Build();
-
-            new Builders.Builder()
-                .Complete(() => { })
-                .Build();
-
-            new Builders.Builder()
-                .Setup(() => { })
-                .Setup(() => { });
-
-            new Builders.Builder()
-                .Setup(() => { })
-                .Error(() => { })
-                .Error(() => { });
-
-            new Builders.Builder()
-                .Setup(() => { })
-                .Complete(() => { })
-                .Setup(() => { });
-
+            Assert.NotNull(subject.Setup);
+            Assert.NotNull(subject.Error);
+            Assert.NotNull(subject.Complete);
         }
+
+        [Fact]
+        public void build_2()
+        {
+            var subject = new TestSubject();
+
+            Builder<TestSubject>.Create()
+                .Error(SetError)
+                .Complete(SetComplete)
+                .Build(subject);
+
+            Assert.Null(subject.Setup);
+            Assert.NotNull(subject.Error);
+            Assert.NotNull(subject.Complete);
+        }
+
+        [Fact]
+        public void build_3()
+        {
+            var subject = new TestSubject();
+
+            Builder<TestSubject>.Create()
+                .Setup(SetSetup)
+                .Complete(SetComplete)
+                .Build(subject);
+
+            Assert.NotNull(subject.Setup);
+            Assert.Null(subject.Error);
+            Assert.NotNull(subject.Complete);
+        }
+
+        [Fact]
+        public void build_4()
+        {
+            var subject = new TestSubject();
+
+            Builder<TestSubject>.Create()
+                .Complete(SetComplete)
+                .Build(subject);
+
+            Assert.Null(subject.Setup);
+            Assert.Null(subject.Error);
+            Assert.NotNull(subject.Complete);
+        }
+
+        static void SetSetup(TestSubject s)
+        {
+            s.Setup = "SET";
+        }
+
+        static void SetError(TestSubject s)
+        {
+            s.Error = "SET";
+        }
+
+        static void SetComplete(TestSubject s)
+        {
+            s.Complete = "SET";
+        }
+    }
+
+    public class TestSubject
+    {
+        public string Setup { get; set; }
+        public string Error { get; set; }
+        public string Complete { get; set; }
     }
 }

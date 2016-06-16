@@ -1,10 +1,25 @@
-﻿namespace Sandbox.Fluent.Builder.Builders
+﻿using System;
+
+namespace Sandbox.FluentBuilder.Builders
 {
-    public abstract class BuilderBase
+    public abstract class BuilderBase<T>
     {
-        public void Build()
+        protected readonly Action<T> _setup;
+        protected readonly Action<T> _error;
+        protected readonly Action<T> _complete;
+
+        protected BuilderBase(Action<T> setup, Action<T> error, Action<T> complete)
         {
-            
+            _setup = setup;
+            _error = error;
+            _complete = complete;
+        }
+
+        public void Build(T subject)
+        {
+            _setup?.Invoke(subject);
+            _error?.Invoke(subject);
+            _complete?.Invoke(subject);
         }
     }
 }
