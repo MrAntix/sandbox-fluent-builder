@@ -10,11 +10,11 @@ namespace Sandbox.FluentBuilder
         {
             var subject = new TestSubject();
 
-            Builder<TestSubject>.Create()
+            Builder.For(subject)
                 .Setup(SetSetup)
                 .Error(SetError)
                 .Complete(SetComplete)
-                .Build(subject);
+                .Build();
 
             Assert.NotNull(subject.Setup);
             Assert.NotNull(subject.Error);
@@ -26,10 +26,10 @@ namespace Sandbox.FluentBuilder
         {
             var subject = new TestSubject();
 
-            Builder<TestSubject>.Create()
+            Builder.For(subject)
                 .Error(SetError)
                 .Complete(SetComplete)
-                .Build(subject);
+                .Build();
 
             Assert.Null(subject.Setup);
             Assert.NotNull(subject.Error);
@@ -41,10 +41,10 @@ namespace Sandbox.FluentBuilder
         {
             var subject = new TestSubject();
 
-            Builder<TestSubject>.Create()
+            Builder.For(subject)
                 .Setup(SetSetup)
                 .Complete(SetComplete)
-                .Build(subject);
+                .Build();
 
             Assert.NotNull(subject.Setup);
             Assert.Null(subject.Error);
@@ -56,9 +56,9 @@ namespace Sandbox.FluentBuilder
         {
             var subject = new TestSubject();
 
-            Builder<TestSubject>.Create()
+            Builder.For(subject)
                 .Complete(SetComplete)
-                .Build(subject);
+                .Build();
 
             Assert.Null(subject.Setup);
             Assert.Null(subject.Error);

@@ -7,19 +7,22 @@ namespace Sandbox.FluentBuilder.Builders
         protected readonly Action<T> _complete;
         protected readonly Action<T> _error;
         protected readonly Action<T> _setup;
+        protected readonly T _subject;
 
-        protected BuilderBase(Action<T> setup, Action<T> error, Action<T> complete)
+        protected BuilderBase(
+            T subject, Action<T> setup, Action<T> error, Action<T> complete)
         {
+            _subject = subject;
             _setup = setup;
             _error = error;
             _complete = complete;
         }
 
-        public void Build(T subject)
+        public void Build()
         {
-            _setup?.Invoke(subject);
-            _error?.Invoke(subject);
-            _complete?.Invoke(subject);
+            _setup?.Invoke(_subject);
+            _error?.Invoke(_subject);
+            _complete?.Invoke(_subject);
         }
     }
 }
